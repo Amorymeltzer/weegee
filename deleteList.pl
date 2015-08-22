@@ -4,14 +4,12 @@ use strict;
 use warnings;
 #use re 'debug';
 
+my ($hash, $locus, $name);	# store hash, location, name of each file
+my @cur;			# current hash and location set
+
 open my $raw, '<', 'matchList.txt'; # list of hashes and filepaths
 open my $output, '>', 'dupes.txt';
 open my $check, '>', 'manualCheck.txt'; # some need to be checked manually
-
-my ($hash, $locus, $name);	# store hash, location, name of each file
-
-my @cur;			# current hash and location set
-
 
 while (my $nextword = <$raw>) {
   chomp $nextword;
@@ -70,7 +68,9 @@ while (my $nextword = <$raw>) {
       }
   }
 }
-
+close $raw or die $!;
+close $output or die $!;
+close $check or die $!;
 
 sub findName			# gets the filename out of the filepath
   {
