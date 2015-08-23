@@ -4,18 +4,18 @@ use strict;
 use warnings;
 
 
-my $file = "sha.txt";
-my $word = "1";
-my $count = "0";
+my $file = 'sha.txt';
+my $word = '1';
+my $count = '0';
 
-open (my $raw, '<', $file);
-open (my $output, '>', "matchList.txt");
+open my $raw, '<', $file or die $!;
+open my $output, '>', 'matchList.txt' or die $!;
 
 while (my $nextword = <$raw>)
 {
     chomp $nextword;
-    my $nextOut = substr($nextword, 0, 40);
-    my $wordOut = substr($word, 0, 40);
+    my $nextOut = substr $nextword, 0, 40;
+    my $wordOut = substr $word, 0, 40;
     if (($nextOut eq $wordOut) and !($nextword =~ m/\.DS_/io))
     {
 	$count++;
@@ -25,7 +25,9 @@ while (my $nextword = <$raw>)
     }
     else
     {
-	$count = "0";
+	$count = '0';
     }
     $word = $nextword;
 }
+close $raw or die $!;
+close $output or die $!;
