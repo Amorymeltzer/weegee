@@ -4,10 +4,9 @@ use strict;
 use warnings;
 use File::Copy;
 
-open(my $raw, '<', "dupes.txt");
+open my $raw, '<', 'dupes.txt';
 
-while (my $nextword = <$raw>)
-{
-    chomp $nextword;
-    move("$nextword","/Users/amorymeltzer/.Trash/");
+while (my $nextword = <$raw>) {
+  chomp $nextword;
+  move("$nextword","/Users/amorymeltzer/.Trash/");
 }
