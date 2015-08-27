@@ -7,9 +7,9 @@ use warnings;
 my ($hash, $locus, $name);	# store hash, location, name of each file
 my @cur;			# current hash and location set
 
-open my $raw, '<', 'matchList.txt'; # list of hashes and filepaths
-open my $output, '>', 'dupes.txt';
-open my $check, '>', 'manualCheck.txt'; # some need to be checked manually
+open my $raw, '<', 'matchList.txt' or die $!; # list of hashes and filepaths
+open my $output, '>', 'dupes.txt' or die $!;
+open my $check, '>', 'manualCheck.txt' or die $!; # some need to be checked manually
 
 while (my $nextword = <$raw>) {
   chomp $nextword;
