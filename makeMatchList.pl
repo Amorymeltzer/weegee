@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 
-my $file = 'sha.txt';
+my $file = 'deep.txt';
 my $word = '1';
 my $count = '0';
 

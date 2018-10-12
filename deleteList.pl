@@ -14,10 +14,9 @@ open my $check, '>', 'manualCheck.txt' or die $!; # some need to be checked manu
 while (my $nextword = <$raw>) {
   chomp $nextword;
 
-  $hash = substr $nextword, 0, 41; # steal the sum
-  $locus = substr $nextword, 42;   # pilfer the path
+  $hash = substr $nextword, 0, 32; # steal the sum
+  $locus = substr $nextword, 34;   # pilfer the path
   $name = findName($locus);	    # filch the file name
-
 
   # indicates we've reaches a new set of files,
   # thus we need to initialize our current var
