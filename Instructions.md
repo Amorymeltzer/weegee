@@ -8,8 +8,5 @@ Result: Discern which file(s) to delete
 
 Step 3: Go through ManualCheck.txt FIRST!  Repeat Steps 1 and 2 when done.
 
-Step 4: ./move.pl
-Result: Files in dupes.txt moved to trash
-
-Step 5: ./orgFiles.pl <directory/with/only/image/files>
-Result: Files moved to appropriately named directs
+Step 4: ./move.pl <directory/with/only/image/files>
+Result: Files in dupes.txt moved to trash, others moved to appropriately named directory
